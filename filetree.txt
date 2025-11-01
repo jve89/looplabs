@@ -1,0 +1,73 @@
+.
+├── .gitignore
+├── LICENSE
+├── README.md
+├── assets
+│   ├── 20250726_124702.jpg
+│   └── audio
+│       ├── chill.mp3
+│       ├── corporate.mp3
+│       └── energetic.mp3
+├── engine
+│   ├── caption_generator.py
+│   ├── config.py
+│   ├── generate_loop.py
+│   ├── generator.py
+│   ├── main.py
+│   ├── requirements.txt
+│   ├── test.mp4
+│   ├── utils
+│   │   ├── io_utils.py
+│   │   └── timestamp.py
+│   └── verify_env.py
+├── filetree.txt
+├── output
+│   ├── job_1762015152023.json
+│   ├── job_1762015240087.json
+│   ├── job_1762015427229
+│   │   ├── metadata.json
+│   │   └── video.mp4
+│   ├── job_1762015427229.zip
+│   ├── job_1762016424788
+│   │   ├── metadata.json
+│   │   └── video.mp4
+│   ├── job_1762016424788.zip
+│   ├── job_1762017720907
+│   │   └── metadata.json
+│   ├── job_1762017857407
+│   │   └── metadata.json
+│   ├── job_1762017935987
+│   │   ├── metadata.json
+│   │   └── video.mp4
+│   ├── job_1762017935987.zip
+│   ├── job_1762018724731
+│   │   ├── metadata.json
+│   │   └── video.mp4
+│   ├── job_1762018724731.zip
+│   ├── job_1762019830986
+│   │   └── metadata.json
+│   ├── job_1762019906034
+│   │   └── metadata.json
+│   ├── looplabs_20251101_162816.mp4
+│   ├── looplabs_20251101_163152.mp4
+│   ├── looplabs_20251101_163732.mp4
+│   ├── looplabs_20251101_164920.mp4
+│   ├── looplabs_20251101_173912.mp4
+│   └── looplabs_20251101_174040.mp4
+├── scripts
+│   └── generate.sh
+├── server
+│   ├── .env
+│   ├── .env.example
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── src
+│   │   ├── index.ts
+│   │   └── services
+│   │       └── aiService.ts
+│   └── tsconfig.json
+└── web
+    ├── app.js
+    └── index.html
+
+19 directories, 52 files
