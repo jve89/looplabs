@@ -1,44 +1,46 @@
 # engine/main.py
 """
-LoopLabs Engine v0.1
-Stable build using MoviePy 1.0.3
+LoopLabs Engine v0.3
+Handles JSON input and delegates generation to generator.py
 """
 
-from moviepy.editor import TextClip, ColorClip, CompositeVideoClip
+import sys
+import json
 from pathlib import Path
-import datetime
+from generator import generate_clip
 
 
-OUTPUT_DIR = Path(__file__).resolve().parent.parent / "output"
-OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+def main():
+    # Read raw input from stdin
+    raw_input = sys.stdin.read().strip()
+    if not raw_input:
+        print("❌ No input received.")
+        sys.exit(1)
 
+    # Try to parse JSON input from API
+    try:
+        data = json.loads(raw_input)
+    except json.JSONDecodeError:
+        data = {"text": raw_input}
 
-def generate_clip(text: str, duration: int = 5, size=(720, 1280)):
-    """Generate a simple branded clip with text overlay."""
-    w, h = size
-    bg = ColorClip(size, color=(20, 20, 20), duration=duration)
+    text = data.get("text") or data.get("prompt") or "Default text"
+    duration = int(data.get("duration", 5))
+    theme = data.get("theme", "dark")
+    font = data.get("font", "Helvetica-Bold")
+    logo = data.get("logo", "assets/logo.png")
 
-    txt = TextClip(
-        txt=text,
-        fontsize=48,
-        color="white",
-        font="Helvetica-Bold",
-        size=(w - 100, None),
-        method="caption",
-    ).set_position("center").set_duration(duration)
+    print(f"🎬 Generating video: text='{text}' theme='{theme}' duration={duration}s")
 
-    clip = CompositeVideoClip([bg, txt])
-
-    ts = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-    output_path = OUTPUT_DIR / f"looplabs_{ts}.mp4"
-    clip.write_videofile(str(output_path), fps=24, codec="libx264", audio=False)
+    output_path = generate_clip(
+        text=text,
+        duration=duration,
+        theme=theme,
+        font=font,
+        logo_path=Path(logo) if logo else None,
+    )
 
     print(f"\n✅ Video generated: {output_path}")
 
 
 if __name__ == "__main__":
-    user_text = input("Enter your text: ").strip()
-    if user_text:
-        generate_clip(user_text)
-    else:
-        print("No text entered. Exiting.")
+    main()
