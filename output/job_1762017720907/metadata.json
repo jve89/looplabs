@@ -1,0 +1,13 @@
+{
+  "id": 1762017720907,
+  "timestamp": "2025-11-01T17:22:00.908Z",
+  "input": {
+    "prompt": "JSON pipeline test",
+    "theme": "sunset",
+    "duration": 6,
+    "brand": "LoopLabs",
+    "font": "Helvetica-Bold"
+  },
+  "readiness": 30,
+  "expectedOutput": "/Users/johan/VS Code Repositories/Loop-Labs/looplabs/output/job_1762017720907/video.mp4"
+}

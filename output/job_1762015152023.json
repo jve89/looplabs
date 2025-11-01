@@ -1,0 +1,21 @@
+{
+  "id": 1762015152023,
+  "timestamp": "2025-11-01T16:39:12.023Z",
+  "input": {
+    "prompt": "Promo clip test",
+    "media": [
+      "assets/logo.png"
+    ],
+    "keywords": [
+      "promo",
+      "launch"
+    ],
+    "hashtags": [
+      "#looplabs"
+    ],
+    "audio": "energetic",
+    "brand": "LoopLabs",
+    "theme": "blue"
+  },
+  "readiness": 100
+}

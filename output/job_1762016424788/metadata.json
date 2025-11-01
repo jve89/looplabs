@@ -1,0 +1,23 @@
+{
+  "id": 1762016424788,
+  "timestamp": "2025-11-01T17:00:24.790Z",
+  "input": {
+    "prompt": "Product promo video",
+    "media": [
+      "assets/logo.png"
+    ],
+    "keywords": [
+      "modern",
+      "clean"
+    ],
+    "hashtags": [
+      "#promo",
+      "#looplabs"
+    ],
+    "audio": "energetic",
+    "brand": "LoopLabs",
+    "theme": "blue"
+  },
+  "readiness": 100,
+  "expectedOutput": "/Users/johan/VS Code Repositories/Loop-Labs/looplabs/output/job_1762016424788/video.mp4"
+}

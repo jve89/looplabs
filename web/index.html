@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LoopLabs Control Panel</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
+  <style>
+    body { max-width: 700px; margin: 3rem auto; }
+    #output { margin-top: 2rem; }
+    .ready { color: green; font-weight: bold; }
+    .error { color: red; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>🎬 LoopLabs Control Panel</h1>
+    <form id="generateForm">
+      <label>
+        Prompt / Text
+        <input type="text" id="prompt" placeholder="e.g. Modern promo video" required />
+      </label>
+
+      <label>
+        Brand Name
+        <input type="text" id="brand" placeholder="e.g. LoopLabs" />
+      </label>
+
+      <label>
+        Theme
+        <select id="theme">
+          <option value="dark">Dark</option>
+          <option value="light">Light</option>
+          <option value="blue">Blue</option>
+          <option value="sunset">Sunset</option>
+        </select>
+      </label>
+
+      <label>
+        Audio Mood
+        <input type="text" id="audio" placeholder="e.g. energetic, chill" />
+      </label>
+
+      <button type="submit">Generate Video</button>
+    </form>
+
+    <div id="output"></div>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

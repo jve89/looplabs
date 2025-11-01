@@ -1,0 +1,21 @@
+{
+  "id": 1762015240087,
+  "timestamp": "2025-11-01T16:40:40.087Z",
+  "input": {
+    "prompt": "Brand reel test",
+    "media": [
+      "assets/logo.png"
+    ],
+    "keywords": [
+      "brand",
+      "style"
+    ],
+    "hashtags": [
+      "#reel"
+    ],
+    "audio": "chill",
+    "brand": "LoopLabs",
+    "theme": "sunset"
+  },
+  "readiness": 100
+}

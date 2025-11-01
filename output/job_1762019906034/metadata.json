@@ -1,0 +1,11 @@
+{
+  "id": 1762019906034,
+  "timestamp": "2025-11-01T17:58:26.035Z",
+  "input": {
+    "prompt": "**Tone**: Inviting and dreamy  \n**Visuals**: Lush green palm trees framing pristine beaches, turquoise waters, and vibrant sunsets. Drone shots sweeping over island chains, revealing hidden coves and crystal-clear lagoons.  \n**Camera Movement**: Smooth, soaring drone shots transitioning into close-ups of local wildlife and colorful markets.  \n**Vibe**: Serene and adventurous, evoking a sense of wanderlust and the paradise waiting to be explored.  \n**Soundtrack**: Uplifting island-inspired music to enhance the enchanting experience.",
+    "theme": "sunset",
+    "duration": 6
+  },
+  "readiness": 25,
+  "expectedOutput": "/Users/johan/VS Code Repositories/Loop-Labs/looplabs/output/job_1762019906034/video.mp4"
+}

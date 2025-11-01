@@ -1,0 +1,11 @@
+{
+  "id": 1762019830986,
+  "timestamp": "2025-11-01T17:57:10.987Z",
+  "input": {
+    "prompt": "**Tone:** Inviting and adventurous.  \n**Visuals:** Breathtaking drone shots soar over turquoise waters and white sandy beaches, highlighting lush green palm trees and vibrant coral reefs. Close-ups of locals showcasing their culture and colorful markets.  \n**Camera Movement:** Slow-motion pans revealing hidden coves, sweeping aerial shots gliding over the landscape, and dynamic cuts between scenes.  \n**Vibe:** Effervescent and uplifting, evoking wanderlust and a call to adventure—\"Discover paradise awaits!\"",
+    "theme": "sunset",
+    "duration": 6
+  },
+  "readiness": 25,
+  "expectedOutput": "/Users/johan/VS Code Repositories/Loop-Labs/looplabs/output/job_1762019830986/video.mp4"
+}

@@ -1,0 +1,11 @@
+{
+  "id": 1762018724731,
+  "timestamp": "2025-11-01T17:38:44.732Z",
+  "input": {
+    "prompt": "Music test",
+    "audio": "chill",
+    "theme": "blue"
+  },
+  "readiness": 35,
+  "expectedOutput": "/Users/johan/VS Code Repositories/Loop-Labs/looplabs/output/job_1762018724731/video.mp4"
+}
