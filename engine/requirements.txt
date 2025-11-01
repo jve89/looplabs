@@ -4,7 +4,6 @@ decorator==5.2.1
 idna==3.11
 imageio==2.37.0
 imageio-ffmpeg==0.6.0
-moviepy==2.2.1
 numpy==2.0.2
 pillow==11.3.0
 proglog==0.1.12
@@ -12,3 +11,4 @@ python-dotenv==1.2.1
 requests==2.32.5
 tqdm==4.67.1
 urllib3==2.5.0
+moviepy==1.0.3
