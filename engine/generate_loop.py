@@ -1,6 +1,11 @@
 import os, sys, random, json
 from openai import OpenAI
-from moviepy.editor import ColorClip, TextClip, CompositeVideoClip
+from moviepy.editor import (
+    ColorClip,
+    TextClip,
+    CompositeVideoClip,
+    AudioFileClip,
+)
 from config import OPENAI_API_KEY, OUTPUT_ROOT, VIDEO_RES, FPS, DURATION, MODEL
 from utils.timestamp import now_id, now_readable
 from utils.io_utils import ensure_dir, write_text, write_json
@@ -31,17 +36,21 @@ def get_visual_concept(prompt: str) -> dict:
         response_format={"type": "json_object"},
     )
 
-    # the new SDK exposes the JSON as .message.content, not .parsed
     raw = resp.choices[0].message.content
     try:
         return json.loads(raw)
     except Exception:
         print("⚠️  Could not parse JSON, using fallback.")
-        return {"color": [0, 0, 255], "text": "LoopLabs", "motion": "none", "mood": "neutral"}
+        return {
+            "color": [0, 0, 255],
+            "text": "LoopLabs",
+            "motion": "none",
+            "mood": "neutral",
+        }
 
 
 def build_loop(meta: dict, out_path: str):
-    """Generate simple looping animation with MoviePy."""
+    """Generate looping animation with optional text and background audio."""
     color = meta.get("color", [0, 0, 0])
     base = ColorClip(VIDEO_RES, color=color, duration=DURATION)
 
@@ -53,16 +62,37 @@ def build_loop(meta: dict, out_path: str):
     elif meta.get("motion") == "fade":
         base = base.crossfadein(1).crossfadeout(1)
 
+    # Optional text overlay
     txt = meta.get("text", "")
     if txt:
-        text_clip = TextClip(
-            txt, fontsize=60, color="white", font="Helvetica-Bold"
-        ).set_position("center").set_duration(DURATION)
+        text_color = meta.get("text_color", "white")
+        font_name = meta.get("font", "Helvetica-Bold")
+        text_clip = (
+            TextClip(
+                txt,
+                fontsize=meta.get("font_size", 60),
+                color=text_color,
+                font=font_name,
+            )
+            .set_position("center")
+            .set_duration(DURATION)
+        )
         final = CompositeVideoClip([base, text_clip])
     else:
         final = base
 
-    final.write_videofile(out_path, fps=FPS, codec="libx264", audio=False)
+    # Optional background audio
+    music_path = meta.get("music")
+    if music_path and os.path.exists(music_path):
+        try:
+            audio_clip = AudioFileClip(music_path).subclip(0, DURATION)
+            final = final.set_audio(audio_clip.audio_fadein(0.5).audio_fadeout(0.5))
+            print(f"🎵  Added background audio: {music_path}")
+        except Exception as e:
+            print(f"⚠️  Could not load music ({music_path}): {e}")
+
+    # Write result
+    final.write_videofile(out_path, fps=FPS, codec="libx264", audio=bool(music_path))
 
 
 def main():

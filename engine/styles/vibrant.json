@@ -1,0 +1,7 @@
+{
+  "font": "Poppins-Bold",
+  "color_primary": [255, 80, 120],
+  "text_color": "white",
+  "motion": "pulse",
+  "music": "energetic.mp3"
+}
